@@ -6,8 +6,6 @@ import {
   Bson,
   MongoClient,
 } from "https://deno.land/x/mongo@v0.29.2/mod.ts";
-import { config as dotEnvConfig } from 'https://deno.land/x/dotenv@v1.0.1/mod.ts';
-dotEnvConfig({ export: true });
 
 const typeDefs = gql`
   type Query {
@@ -41,9 +39,9 @@ const connect = async () => {
       },
     ],
     credential: {
-      username: Deno.env.get("DB_USER"),
-      password: Deno.env.get("DB_PASSWORD"),
-      db: Deno.env.get("DB_NAME"),
+      username: "root",
+      password: "root",
+      db: "test",
       mechanism: "SCRAM-SHA-1",
     },
   });
